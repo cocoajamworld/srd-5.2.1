@@ -15,8 +15,8 @@ See [data/LICENSE](data/LICENSE) for the full attribution block.
 |------|------|
 | `data/monsters.json` | 322 monsters — full stat blocks in structured JSON |
 | `data/conditions.json` | 14 conditions with markdown-formatted rules text |
-| `data/schema/monster.schema.json` | JSON Schema (draft 2020-12) for `monsters.json` |
-| `data/schema/condition.schema.json` | JSON Schema (draft 2020-12) for `conditions.json` |
+| `data/schema/monster.schema.json` | JSON Schema (draft-07) for `monsters.json` |
+| `data/schema/condition.schema.json` | JSON Schema (draft-07) for `conditions.json` |
 | `data/expected-mismatches.md` | Known differences from the Open5e cross-reference |
 | `mcp/` | stdio MCP server — `lookup_monster`, `lookup_condition`, `search_monsters`, `license` |
 
@@ -27,14 +27,14 @@ This is SRD **5.2.1** (2024 rules), not the 2014 SRD. The data is sourced from t
 
 ## Install the MCP server
 
-### Claude Desktop / Claude Code
+### Claude Desktop
 
 Add to your `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "srd-5.2.1": {
+    "srd-521": {
       "command": "npx",
       "args": ["-y", "@cocoajamworld/srd-5.2.1-mcp"]
     }
@@ -42,7 +42,15 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
-Or run directly:
+### Claude Code (CLI)
+
+```bash
+claude mcp add srd-521 -- npx -y @cocoajamworld/srd-5.2.1-mcp
+```
+
+> **Note:** MCP server names can't contain dots — use `srd-521` (or any name you like).
+
+### Run directly
 
 ```bash
 npx @cocoajamworld/srd-5.2.1-mcp
