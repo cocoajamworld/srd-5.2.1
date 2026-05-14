@@ -1,0 +1,35 @@
+{
+  "name": "@cocoajamworld/srd-5.2.1-mcp",
+  "version": "1.0.0",
+  "description": "stdio MCP server for SRD 5.2.1 monsters and conditions (2024 rules)",
+  "type": "module",
+  "bin": {
+    "srd-5.2.1-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": ["dist", "data"],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "node -e \"require('fs').cpSync('../data', './data', {recursive: true, force: true})\" && npm run build",
+    "prepack": "npm run prepare",
+    "test": "node --experimental-test-snapshots --test dist/test/*.test.js",
+    "test:build": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "srd", "dnd", "ttrpg", "fifth-edition", "2024"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cocoajamworld/srd-5.2.1"
+  },
+  "homepage": "https://github.com/cocoajamworld/srd-5.2.1#readme"
+}

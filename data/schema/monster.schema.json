@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cocoajamworld/srd-5.2.1/blob/main/data/schema/monster.schema.json",
+  "title": "SRD 5.2.1 Monsters Dataset",
+  "description": "Top-level monsters.json file shape",
+  "type": "object",
+  "required": ["_license", "monsters"],
+  "additionalProperties": false,
+  "properties": {
+    "_license": {
+      "type": "string",
+      "description": "CC-BY 4.0 attribution string crediting WotC and Open5e"
+    },
+    "monsters": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Monster" }
+    }
+  },
+  "$defs": {
+    "Monster": {
+      "type": "object",
+      "required": [
+        "id", "name", "size", "type", "cr", "cr_numeric",
+        "hp_max", "hp_formula", "armor_class", "initiative_modifier",
+        "source", "attribution", "stat_block_json"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Unique slug, e.g. srd:goblin" },
+        "name": { "type": "string" },
+        "size": {
+          "type": "string",
+          "enum": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "aberration", "beast", "celestial", "construct", "dragon",
+            "elemental", "fey", "fiend", "giant", "humanoid",
+            "monstrosity", "ooze", "plant", "undead"
+          ]
+        },
+        "cr": { "type": "string", "description": "Challenge rating as a string, e.g. '1/4', '0', '20'" },
+        "cr_numeric": { "type": "number" },
+        "hp_max": { "type": "integer" },
+        "hp_formula": { "type": "string" },
+        "armor_class": { "type": "integer" },
+        "initiative_modifier": { "type": "integer" },
+        "source": { "type": "string" },
+        "attribution": { "type": "string" },
+        "user_id": { "type": ["string", "null"] },
+        "stat_block_json": { "$ref": "#/$defs/StatBlock" }
+      }
+    },
+    "StatBlock": {
+      "type": "object",
+      "required": [
+        "schema_version", "ability_scores", "speed", "senses",
+        "saving_throws", "skills", "damage_vulnerabilities",
+        "damage_resistances", "damage_immunities", "condition_immunities",
+        "languages", "traits", "actions", "reactions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": { "type": "integer" },
+        "ability_scores": {
+          "type": "object",
+          "required": ["str", "dex", "con", "int", "wis", "cha"],
+          "additionalProperties": false,
+          "properties": {
+            "str": { "type": "integer" },
+            "dex": { "type": "integer" },
+            "con": { "type": "integer" },
+            "int": { "type": "integer" },
+            "wis": { "type": "integer" },
+            "cha": { "type": "integer" }
+          }
+        },
+        "speed": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "walk": { "type": "integer" },
+            "fly": { "type": "integer" },
+            "swim": { "type": "integer" },
+            "climb": { "type": "integer" },
+            "burrow": { "type": "integer" },
+            "hover": { "type": "boolean" }
+          }
+        },
+        "senses": {
+          "type": "object",
+          "required": ["passive_perception"],
+          "additionalProperties": false,
+          "properties": {
+            "passive_perception": { "type": "integer" },
+            "darkvision": { "type": "integer" },
+            "blindsight": { "type": "integer" },
+            "tremorsense": { "type": "integer" },
+            "truesight": { "type": "integer" }
+          }
+        },
+        "saving_throws": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        },
+        "skills": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        },
+        "damage_vulnerabilities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "damage_resistances": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "damage_immunities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "condition_immunities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "traits": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/NamedEntry" }
+        },
+        "actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Action" }
+        },
+        "reactions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Action" }
+        },
+        "legendary_actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Action" }
+        }
+      }
+    },
+    "NamedEntry": {
+      "type": "object",
+      "required": ["name", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "Action": {
+      "type": "object",
+      "required": ["name", "description"],
+      "additionalProperties": true,
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "attack_bonus": { "type": "integer" },
+        "damage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "dice": { "type": "string" },
+              "type": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

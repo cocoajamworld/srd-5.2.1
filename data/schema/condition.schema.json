@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cocoajamworld/srd-5.2.1/blob/main/data/schema/condition.schema.json",
+  "title": "SRD 5.2.1 Conditions Dataset",
+  "description": "Top-level conditions.json file shape",
+  "type": "object",
+  "required": ["_license", "conditions"],
+  "additionalProperties": false,
+  "properties": {
+    "_license": {
+      "type": "string",
+      "description": "CC-BY 4.0 attribution string crediting WotC and Open5e"
+    },
+    "conditions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Condition" }
+    }
+  },
+  "$defs": {
+    "Condition": {
+      "type": "object",
+      "required": ["key", "name", "description", "attribution"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string", "description": "Lowercase slug, e.g. blinded" },
+        "name": { "type": "string" },
+        "description": { "type": "string", "description": "Markdown bullet list of condition rules" },
+        "attribution": { "type": "string" }
+      }
+    }
+  }
+}
