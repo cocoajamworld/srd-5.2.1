@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/cocoajamworld/srd-5.2.1/blob/main/data/schema/monster.schema.json",
   "title": "SRD 5.2.1 Monsters Dataset",
   "description": "Top-level monsters.json file shape",
@@ -141,8 +141,24 @@
           "items": { "$ref": "#/$defs/Action" }
         },
         "legendary_actions": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/Action" }
+          "type": "object",
+          "required": ["per_round", "description", "actions"],
+          "properties": {
+            "per_round": { "type": "integer" },
+            "description": { "type": "string" },
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "description", "cost"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "cost": { "type": "integer" }
+                }
+              }
+            }
+          }
         }
       }
     },
