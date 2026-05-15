@@ -1,6 +1,6 @@
 {
   "name": "@cocoajamworld/fifth-edition-srd-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "stdio MCP server for SRD 5.2.1 monsters and conditions (2024 rules)",
   "type": "module",
   "bin": {
@@ -25,7 +25,7 @@
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["mcp", "srd", "dnd", "ttrpg", "fifth-edition", "2024"],
+  "keywords": ["mcp", "srd", "ttrpg", "fifth-edition", "5e", "2024"],
   "license": "MIT",
   "repository": {
     "type": "git",

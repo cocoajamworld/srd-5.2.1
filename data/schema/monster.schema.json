@@ -54,12 +54,7 @@
     },
     "StatBlock": {
       "type": "object",
-      "required": [
-        "schema_version", "ability_scores", "speed", "senses",
-        "saving_throws", "skills", "damage_vulnerabilities",
-        "damage_resistances", "damage_immunities", "condition_immunities",
-        "languages", "traits", "actions", "reactions"
-      ],
+      "required": ["schema_version", "ability_scores", "speed"],
       "additionalProperties": false,
       "properties": {
         "schema_version": { "type": "integer" },
@@ -90,7 +85,6 @@
         },
         "senses": {
           "type": "object",
-          "required": ["passive_perception"],
           "additionalProperties": false,
           "properties": {
             "passive_perception": { "type": "integer" },
