@@ -1,10 +1,10 @@
 {
-  "name": "@cocoajamworld/srd-5.2.1-mcp",
+  "name": "@cocoajamworld/fifth-edition-srd-mcp",
   "version": "1.0.0",
   "description": "stdio MCP server for SRD 5.2.1 monsters and conditions (2024 rules)",
   "type": "module",
   "bin": {
-    "srd-5.2.1-mcp": "dist/index.js"
+    "fifth-edition-srd-mcp": "dist/index.js"
   },
   "main": "dist/index.js",
   "files": ["dist", "data"],

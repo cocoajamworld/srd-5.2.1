@@ -14,6 +14,6 @@ re-publishes the WotC SRD 5.2.1 under CC BY 4.0. Cross-referenced against Open5e
 catch transformation regressions. Known discrepancies documented in `data/expected-mismatches.md`.
 
 **MCP server:**
-- `@cocoajamworld/srd-5.2.1-mcp` v1.0.0
+- `@cocoajamworld/fifth-edition-srd-mcp` v1.0.0
 - Tools: `lookup_monster`, `lookup_condition`, `search_monsters`, `license`
-- Installable via `npx @cocoajamworld/srd-5.2.1-mcp`
+- Installable via `npx @cocoajamworld/fifth-edition-srd-mcp`

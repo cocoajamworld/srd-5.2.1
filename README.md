@@ -36,7 +36,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "srd-521": {
       "command": "npx",
-      "args": ["-y", "@cocoajamworld/srd-5.2.1-mcp"]
+      "args": ["-y", "@cocoajamworld/fifth-edition-srd-mcp"]
     }
   }
 }
@@ -45,7 +45,7 @@ Add to your `claude_desktop_config.json`:
 ### Claude Code (CLI)
 
 ```bash
-claude mcp add srd-521 -- npx -y @cocoajamworld/srd-5.2.1-mcp
+claude mcp add srd-521 -- npx -y @cocoajamworld/fifth-edition-srd-mcp
 ```
 
 > **Note:** MCP server names can't contain dots — use `srd-521` (or any name you like).
@@ -53,7 +53,7 @@ claude mcp add srd-521 -- npx -y @cocoajamworld/srd-5.2.1-mcp
 ### Run directly
 
 ```bash
-npx @cocoajamworld/srd-5.2.1-mcp
+npx @cocoajamworld/fifth-edition-srd-mcp
 ```
 
 ### Available tools
